@@ -1,0 +1,62 @@
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit'
+import axios from 'axios'
+import type { User } from '@/types/User'
+
+interface UserState {
+    users: User[]
+    loading: boolean
+    error: string | null
+}
+
+const initialState: UserState = {
+    users: [],
+    loading: false,
+    error: null,
+}
+
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+    const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/users'
+    )
+    return response.data
+})
+
+const userReducer = createSlice({
+    name: 'users',
+    initialState,
+    reducers: {
+        addUser: (state, action: PayloadAction<User>) => {
+            state.users.push(action.payload)
+        },
+        editUser: (state, action: PayloadAction<User>) => {
+            const index = state.users.findIndex(
+                (u) => u.id === action.payload.id
+            )
+            if (index !== -1) {
+                state.users[index] = action.payload
+            }
+        },
+        deleteUser: (state, action: PayloadAction<number>) => {
+            state.users = state.users.filter((u) => u.id !== action.payload)
+        },
+    },
+    extraReducers: (builder) => {
+        builder
+            .addCase(fetchUsers.pending, (state) => {
+                state.loading = true
+                state.error = null
+            })
+            .addCase(fetchUsers.fulfilled, (state, action) => {
+                state.loading = false
+                state.users = action.payload
+            })
+            .addCase(fetchUsers.rejected, (state, action) => {
+                state.loading = false
+                state.error = action.error.message || 'Failed to fetch users'
+            })
+    },
+})
+
+export const { addUser, editUser, deleteUser } = userReducer.actions
+export default userReducer.reducer
