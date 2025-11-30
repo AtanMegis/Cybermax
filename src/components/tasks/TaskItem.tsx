@@ -87,6 +87,11 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
         >
             <div className="flex items-start gap-3 sm:gap-4">
                 <button
+                    aria-label={
+                        task.completed
+                            ? 'Mark as incomplete'
+                            : 'Mark as complete'
+                    }
                     onClick={handleToggle}
                     disabled={isToggling}
                     className="mt-0.5 flex-shrink-0 text-gray-400 hover:text-white active:scale-90 transition-all disabled:opacity-50 cursor-pointer"
@@ -122,6 +127,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
                 </div>
 
                 <button
+                    aria-label="Delete task"
                     onClick={handleDelete}
                     disabled={isDeleting}
                     className="flex-shrink-0 text-gray-400 hover:text-red-600 active:scale-90 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-50 sm:opacity-100 sm:group-hover:opacity-100 cursor-pointer"

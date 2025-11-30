@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Plus, FileDown, RefreshCw, Minus } from 'lucide-react'
-// import { Header } from '@/components/layout/Header'
-// import { StatsCard } from '@/components/layout/StatsCard'
-// import { Button } from '@/components/ui/Button'
 import { useAppSelector, useAppDispatch } from './store/hooks'
 import { TaskForm } from '@/components/tasks/TaskForm'
 import { TaskList } from '@/components/tasks/TaskList'
@@ -10,7 +7,8 @@ import { fetchTasks } from '@/store/reducers/TaskReducer'
 import { generateTasksPDF } from '@/utils/PDFGenerator'
 import Swal from 'sweetalert2'
 import { Header } from '@/components/layout/Header'
-import { StatsCard } from './components/layout/StatsCard'
+import { StatsCard } from '@/components/layout/StatsCard'
+import Footer from '@/components/layout/Footer'
 
 const App: React.FC = () => {
     const [showForm, setShowForm] = useState(false)
@@ -53,7 +51,7 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-400 via-20% to-purple-100">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
+            <div className="min-h-screen max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10">
                 {/* Header */}
                 <Header />
 
@@ -124,6 +122,8 @@ const App: React.FC = () => {
                     onRetry={handleRefresh}
                 />
             </div>
+
+            <Footer />
         </div>
     )
 }

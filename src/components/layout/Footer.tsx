@@ -5,9 +5,8 @@ const Footer: React.FC = () => {
 
     return (
         <footer className="bg-gray-800 text-white mt-auto">
-            <div className="container mx-auto px-4 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {/* About Section */}
+            <div className="container mx-auto px-16 py-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
                     <div>
                         <h3 className="text-lg font-bold mb-4">About</h3>
                         <p className="text-gray-400 text-sm">
@@ -17,7 +16,6 @@ const Footer: React.FC = () => {
                         </p>
                     </div>
 
-                    {/* Quick Links */}
                     <div>
                         <h3 className="text-lg font-bold mb-4">Quick Links</h3>
                         <ul className="space-y-2 text-sm">
@@ -56,7 +54,6 @@ const Footer: React.FC = () => {
                         </ul>
                     </div>
 
-                    {/* Connect Section */}
                     <div>
                         <h3 className="text-lg font-bold mb-4">Connect</h3>
                         <div className="flex gap-4">
@@ -93,7 +90,6 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Footer Bottom */}
                 <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
                     <p className="flex items-center justify-center gap-1">
                         Made with <FaHeart className="text-red-500" /> ©{' '}

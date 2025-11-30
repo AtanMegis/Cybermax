@@ -119,7 +119,7 @@ export const TaskForm: React.FC<TaskFormProps> = ({ onSuccess }) => {
             <button
                 onClick={handleSubmit}
                 disabled={isSubmitting}
-                className="w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 active:scale-95 transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/30"
+                className="cursor-pointer w-full bg-indigo-600 text-white py-3 px-4 rounded-lg hover:bg-indigo-700 active:scale-95 transition-all font-medium flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-500/30"
             >
                 {isSubmitting ? (
                     <>
