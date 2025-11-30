@@ -130,7 +130,7 @@ export const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
                     aria-label="Delete task"
                     onClick={handleDelete}
                     disabled={isDeleting}
-                    className="flex-shrink-0 text-gray-400 hover:text-red-600 active:scale-90 transition-all opacity-0 group-hover:opacity-100 disabled:opacity-50 sm:opacity-100 sm:group-hover:opacity-100 cursor-pointer"
+                    className="opacity-100 flex-shrink-0 text-gray-400 hover:text-red-600 active:scale-90 transition-all  disabled:opacity-50 sm:opacity-100 sm:group-hover:opacity-100 cursor-pointer"
                 >
                     <Trash2 size={20} />
                 </button>
